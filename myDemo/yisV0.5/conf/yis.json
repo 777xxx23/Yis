@@ -1,0 +1,8 @@
+{
+  "Host" : "127.0.0.1",
+  "TcpPort": 8999,
+  "Name": "yis",
+  "Version": "V0.4",
+  "MaxPackageSize": 8192,
+  "MaxConn": 400
+}
