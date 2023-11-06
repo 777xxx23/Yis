@@ -31,7 +31,7 @@ var GlobalObject *GlobalObj
 
 // Reload 从cong/yis.json文件中重新加载数据
 func (g *GlobalObj) Reload() {
-	data, err := os.ReadFile("conf/yis.json")
+	data, err := os.ReadFile("./conf/yis.json")
 	if err != nil {
 		fmt.Println("readFile error, ", err)
 		panic(err)
