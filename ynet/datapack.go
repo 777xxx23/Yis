@@ -28,14 +28,14 @@ func (dp *DataPack) Pack(msg yiface.IMessage) ([]byte, error) {
 	//创建一个byte缓冲
 	dataBuff := bytes.NewBuffer([]byte{})
 
-	//写Length
-	err := binary.Write(dataBuff, binary.LittleEndian, msg.GetLength())
+	//写id
+	err := binary.Write(dataBuff, binary.LittleEndian, msg.GetId())
 	if err != nil {
 		fmt.Println("binary.Write error : ", err)
 		return nil, err
 	}
-	//写ID
-	err = binary.Write(dataBuff, binary.LittleEndian, msg.GetId())
+	//写length
+	err = binary.Write(dataBuff, binary.LittleEndian, msg.GetLength())
 	if err != nil {
 		fmt.Println("binary.Write2 error : ", err)
 		return nil, err
@@ -55,14 +55,14 @@ func (dp *DataPack) UnPack(data []byte) (yiface.IMessage, error) {
 	dataBuff := bytes.NewReader(data)
 
 	msg := &Message{}
-	//取出Length
-	err := binary.Read(dataBuff, binary.LittleEndian, &msg.Length)
+	//取出id
+	err := binary.Read(dataBuff, binary.LittleEndian, &msg.Id)
 	if err != nil {
 		fmt.Println("binary Read error : ", err)
 		return nil, err
 	}
-	//取出ID
-	err = binary.Read(dataBuff, binary.LittleEndian, &msg.Id)
+	//取出length
+	err = binary.Read(dataBuff, binary.LittleEndian, &msg.Length)
 	if err != nil {
 		fmt.Println("binary Read2 error : ", err)
 		return nil, err

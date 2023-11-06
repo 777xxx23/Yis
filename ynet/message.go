@@ -3,8 +3,8 @@ package ynet
 import "Yis/yiface"
 
 type Message struct {
-	Length uint32
 	Id     uint32
+	Length uint32
 	Data   []byte
 }
 
